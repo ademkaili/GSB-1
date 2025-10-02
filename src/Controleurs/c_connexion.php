@@ -45,14 +45,16 @@ switch ($action) {
                  $id = $comptable['id'];
                 $nom = $comptable['nom'];
                 $prenom = $comptable['prenom'];
-                Utilitaires::connecterComptable($id, $nom, $prenom);
+                $role = $comptable['role'];
+                Utilitaires::connecter($id, $nom, $prenom, $role);
                 header('Location: index.php');
             }
         } else {
             $id = $visiteur['id'];
             $nom = $visiteur['nom'];
             $prenom = $visiteur['prenom'];
-            Utilitaires::connecterVisiteur($id, $nom, $prenom);
+            $role = $visiteur['role'];
+            Utilitaires::connecter($id, $nom, $prenom, $role);
             header('Location: index.php');
         }
         break;
