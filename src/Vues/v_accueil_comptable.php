@@ -20,13 +20,13 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 col-md-12 d-grid gap-2 d-md-block">
-                        <a href="index.php?uc=gererFrais&action=saisirFrais"
+                        <a href="index.php?uc=validerfiches"
                            class="btn btn-success btn-lg" role="button">
-                            <i class="bi bi-pencil"></i>
+                            <i class="bi bi-check"></i>
                             <br>Valider fiche de frais</a>
-                        <a href="index.php?uc=etatFrais&action=selectionnerMois"
+                        <a href="index.php?uc=suivrepaiement"
                            class="btn btn-primary btn-lg" role="button">
-                            <i class="bi bi-list-ul"></i>
+                            <i class="bi bi-currency-euro"></i>
                             <br>Suivre paiement</a>
                     </div>
                 </div>

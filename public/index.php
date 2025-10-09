@@ -28,8 +28,10 @@ $estConnecte = Utilitaires::estConnecte();
 
 if (!$estConnecte){
     require PATH_VIEWS . 'v_entete.php';
-}elseif ($_SESSION['role'] === 'comptable') {
+}elseif ($_SESSION['role']==='comptable'){
     require PATH_VIEWS . 'v_entete_comptable.php';
+}elseif ($_SESSION['role'] === 'visiteur') {
+    require PATH_VIEWS . 'v_entete.php';
 }
 
 $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_FULL_SPECIAL_CHARS);

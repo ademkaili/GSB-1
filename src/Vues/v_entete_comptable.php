@@ -48,25 +48,25 @@
                     <div class="col-md-8">
                         <ul class="nav nav-pills justify-content-end" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link <?php if (!$uc || $uc == 'accueil') { ?>active<?php } ?> " href="index.php">
+                                <a class="nav-link <?php if (!$uc || $uc == 'accueil') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php">
                                     <span class="bi bi-house"></span>
                                     Accueil
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?php if ($uc == 'validerfiches') { ?>active<?php } ?>" href="index.php?uc=validerfiches">
-                                    <span class="bi bi-pencil"></span>
+                                <a class="nav-link <?php if ($uc == 'validerfiches') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php?uc=validerfiches">
+                                    <span class="bi bi-check"></span>
                                     Valider les fiches de frais
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?php if ($uc == 'suivrepaiement') { ?>active<?php } ?>" href="index.php?uc=suivrepaiement">
-                                    <span class="bi bi-list-check"></span>
+                                <a class="nav-link <?php if ($uc == 'suivrepaiement') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php?uc=suivrepaiement">
+                                    <span class="bi bi-currency-euro"></span>
                                     Suivre le paiement des fiches de frais
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?php if ($uc == 'deconnexion') { ?>active<?php } ?>" href="index.php?uc=deconnexion&action=demandeDeconnexion">
+                                <a class="nav-link <?php if ($uc == 'deconnexion') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php?uc=deconnexion&action=demandeDeconnexion">
                                     <span class="bi bi-box-arrow-right"></span>
                                     Déconnexion
                                 </a>
