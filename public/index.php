@@ -26,7 +26,11 @@ session_start();
 $pdo = PdoGsb::getPdoGsb();
 $estConnecte = Utilitaires::estConnecte();
 
-require PATH_VIEWS . 'v_entete.php';
+if (!$estConnecte){
+    require PATH_VIEWS . 'v_entete.php';
+}elseif ($_SESSION['role'] === 'comptable') {
+    require PATH_VIEWS . 'v_entete_comptable.php';
+}
 
 $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
@@ -51,6 +55,12 @@ switch ($uc) {
         break;
     case 'deconnexion':
         include PATH_CTRLS . 'c_deconnexion.php';
+        break;
+    case 'validerfiches':
+        include PATH_CTRLS . 'c_valider_fiches.php';
+        break;
+    case 'suivrepaiement':
+        include PATH_CTRLS . 'c_suivre_paiement.php';
         break;
     default:
         Utilitaires::ajouterErreur('Page non trouvée, veuillez vérifier votre lien...');

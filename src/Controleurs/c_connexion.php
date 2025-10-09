@@ -30,6 +30,7 @@ switch ($action) {
         $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         
+        // BY LC4 (Connexion Comptable)
         if (strpos($login, '.') !== false) {
             $visiteur = $pdo->getInfosVisiteur($login, $mdp);
         } else {
@@ -42,18 +43,18 @@ switch ($action) {
                 include PATH_VIEWS . 'v_erreurs.php';
                 include PATH_VIEWS . 'v_connexion.php';
             } else {
-                 $id = $comptable['id'];
+                $id = $comptable['id'];
                 $nom = $comptable['nom'];
                 $prenom = $comptable['prenom'];
-                $role = $comptable['role'];
+                $role = "comptable";
                 Utilitaires::connecter($id, $nom, $prenom, $role);
-                header('Location: index.php');
+                header('Location : index.php');
             }
         } else {
             $id = $visiteur['id'];
             $nom = $visiteur['nom'];
             $prenom = $visiteur['prenom'];
-            $role = $visiteur['role'];
+            $role = "visiteur";
             Utilitaires::connecter($id, $nom, $prenom, $role);
             header('Location: index.php');
         }
