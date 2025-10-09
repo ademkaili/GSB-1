@@ -4,9 +4,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
 ?>
-<div class="card-header bg-primary text-white">
-    <h3 class="card-title">
-        <i class="bi bi-bookmark"></i>
-        AFFAIRE A SUIVRE
-    </h3>
+<div class="card card-info">
+    <div class="card-header">Eléments forfaitisés</div>
+    <div class="card-body">
+        <table class="table table-bordered table-responsive">
+            <tr>
+                <?php
+                foreach ($lesFraisForfait as $unFraisForfait) {
+                    $libelle = $unFraisForfait['libelle']; ?>
+                    <th> <?php echo htmlspecialchars($libelle) ?></th>
+                    <?php
+                }
+                ?>
+            </tr>
+            <tr>
+                <?php
+                foreach ($lesFraisForfait as $unFraisForfait) {
+                    $quantite = $unFraisForfait['quantite']; ?>
+                    <td class="qteForfait"><?php echo $quantite ?> </td>
+                    <?php
+                }
+                ?>
+            </tr>
+        </table>
+    </div>
 </div>
