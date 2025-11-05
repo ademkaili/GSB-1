@@ -1,7 +1,5 @@
 <?php
 ?>
-<div class="alert alert-warning" role="alert"><strong>
-</div>
 <div id="accueil">
     <h2>
         Gestion des frais<small class="text-muted"> - Visiteur : 

@@ -3,21 +3,6 @@
 /**
  * Classe d'accès aux données.
  *
- * PHP Version 8
- *
- * @category  PPE
- * @package   GSB
- * @author    Cheri Bibi - Réseau CERTA <contact@reseaucerta.org>
- * @author    José GIL - CNED <jgil@ac-nice.fr>
- * @copyright 2017 Réseau CERTA
- * @license   Réseau CERTA
- * @version   GIT: <0>
- * @link      http://www.php.net/manual/fr/book.pdo.php PHP Data Objects sur php.net
- */
-
-/**
- * Classe d'accès aux données.
- *
  * Utilise les services de la classe PDO
  * pour l'application GSB
  * Les attributs sont tous statiques,
@@ -90,7 +75,7 @@ class PdoGsb
      *
      * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
      */
-    public function getInfosVisiteur($login, $mdp): array
+    public function getInfosVisiteur($login, $mdp): ?array
     {
         $requetePrepare = $this->connexion->prepare(
             'SELECT visiteur.id AS id, visiteur.nom AS nom, '
@@ -101,7 +86,12 @@ class PdoGsb
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
         $requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
         $requetePrepare->execute();
-        return $requetePrepare->fetch();
+        $resultat = $requetePrepare->fetch();
+        if ($resultat) {
+            return $resultat;
+        } else {
+        return null;
+        }
     }
     
         /**
@@ -112,20 +102,48 @@ class PdoGsb
      *
      * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
      */
-    public function getInfosComptable ($login, $mdp): array
+    public function getInfosComptable($login, $mdp): ?array
     {
         $requetePrepare = $this->connexion->prepare(
-            'SELECT c.id AS id, c.nom AS nom, '
-            . 'c.prenom AS prenom '
-            . 'FROM comptable AS c '
-            . 'WHERE c.login = :unLogin AND c.mdp = :unMdp'
+            'SELECT comptable.id AS id, comptable.nom AS nom, '
+            . 'comptable.prenom AS prenom '
+            . 'FROM comptable '
+            . 'WHERE comptable.login = :unLogin AND comptable.mdp = :unMdp'
         );
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
         $requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
         $requetePrepare->execute();
-        return $requetePrepare->fetch();
+               $resultat = $requetePrepare->fetch();
+        if ($resultat) {
+            return $resultat;
+        } else {
+        return null;
+        }
     }
-
+    
+    /**methode pour recuperer les visiteur dans la base sous forme de tableau*/
+    
+        public function getLesVisiteurs(): array
+    {
+        $requetePrepare = $this->connexion->prepare(
+            'SELECT visiteur.id AS id, visiteur.nom AS nom, visiteur.prenom AS prenom '
+            . 'FROM visiteur'
+        );
+        $requetePrepare->execute();
+        $lesVisiteurs = array();
+        while ($visiteur = $requetePrepare->fetch()) {
+            $idVisiteur = $visiteur['id'];
+            $nomVisiteur = $visiteur['nom'];
+            $prenomVisiteur = $visiteur['prenom'];
+            $lesVisiteurs[] = array(
+                'id' => $idVisiteur,
+                'nom' => $nomVisiteur,
+                'prenom' => $prenomVisiteur
+            );
+        }
+        return $lesVisiteurs;
+    }
+    
     /**
      * Retourne sous forme d'un tableau associatif toutes les lignes de frais
      * hors forfait concernées par les deux arguments.
