@@ -75,7 +75,28 @@ class PdoGsb
      *
      * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
      */
-    public function getInfosVisiteur($login, $mdp): ?array
+    public function getInfosVisiteurById($idVisiteur): array
+    {
+        $requetePrepare = $this->connexion->prepare(
+            'SELECT visiteur.id AS id, visiteur.nom AS nom, '
+            . 'visiteur.prenom AS prenom '
+            . 'FROM visiteur '
+            . 'WHERE visiteur.id = :unId'
+        );
+        $requetePrepare->bindParam(':unId', $idVisiteur, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        $visiteur = $requetePrepare->fetch();
+        $idVisiteur = $visiteur['id'];
+        $nomVisiteur = $visiteur['nom'];
+        $prenomVisiteur = $visiteur['prenom'];
+        $leVisiteur = array(
+            'id' => $idVisiteur,
+            'nom' => $nomVisiteur,
+            'prenom' => $prenomVisiteur,
+        );
+        return $leVisiteur;
+    }
+        public function getInfosVisiteur($login, $mdp): ?array
     {
         $requetePrepare = $this->connexion->prepare(
             'SELECT visiteur.id AS id, visiteur.nom AS nom, '
@@ -87,13 +108,8 @@ class PdoGsb
         $requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
         $requetePrepare->execute();
         $resultat = $requetePrepare->fetch();
-        if ($resultat) {
-            return $resultat;
-        } else {
-        return null;
-        }
+        
     }
-    
         /**
      * Retourne les informations d'un comptable
      *

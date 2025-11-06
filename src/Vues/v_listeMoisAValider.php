@@ -15,11 +15,6 @@
  * @link      https://getbootstrap.com/docs/3.3/ Documentation Bootstrap v3
  */
 ?>
-<div>
-    <h2 class="text-warning">
-        Valider la fiche de frais
-    </h2>
-</div>
 <div class="row">
     <div class="col-md-4">
         <form action="index.php?uc=validerfiches&action=selectionnerMois" 

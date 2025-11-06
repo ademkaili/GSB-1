@@ -22,18 +22,17 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <h3>Sélectionner un visiteur :</h3>
-    </div>
-    <div class="col-md-4">
-        <form action="index.php?uc=validerfiches&action=selectionnerMois" 
+        <form action="index.php?uc=validerfiches&action=selectionnerFiche" 
               method="post">
             <div class="mb-3">
                 <label for="visiteur" class="form-label" accesskey="n">Visiteur :</label>
                 <select id="visiteur" name="visiteur" class="form-select">
+                    <option selected value="">
+                        Sélectionner un visiteur
+                    </option>
                     <?php
                     foreach ($lesVisiteurs as $unVisiteur) {
-                        if ($unVisiteur == $visiteurASelectionner) {
-                            ?>
+                         if ($unVisiteur == $visiteurASelectionner) {  ?>
                             <option selected value="<?php echo $unVisiteur['id'] ?>">
                                 <?php echo $unVisiteur['nom'] . ' ' . $unVisiteur['prenom'] ?>
                             </option>
