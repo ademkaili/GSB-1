@@ -58,8 +58,8 @@ switch ($uc) {
     case 'deconnexion':
         include PATH_CTRLS . 'c_deconnexion.php';
         break;
-    case 'validerfiches':
-        include PATH_CTRLS . 'c_valider_fiches.php';
+    case 'validerFrais':
+        include PATH_CTRLS . 'c_validerFrais.php';
         break;
     case 'suivrepaiement':
         include PATH_CTRLS . 'c_suivre_paiement.php';

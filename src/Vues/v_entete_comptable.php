@@ -54,7 +54,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?php if ($uc == 'validerfiches') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php?uc=validerfiches&action=selectionnerFiche">
+                                <a class="nav-link <?php if ($uc == 'validerfiches') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php?uc=validerFrais&action=selectionner">
                                     <span class="bi bi-check"></span>
                                     Valider les fiches de frais
                                 </a>

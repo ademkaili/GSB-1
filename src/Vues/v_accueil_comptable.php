@@ -18,7 +18,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 col-md-12 d-grid gap-2 d-md-block">
-                        <a href="index.php?uc=validerfiches"
+                        <a href="index.php?uc=validerFrais&action=selectionner"
                            class="btn btn-success btn-lg" role="button">
                             <i class="bi bi-check"></i>
                             <br>Valider fiche de frais</a>

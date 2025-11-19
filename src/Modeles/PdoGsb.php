@@ -108,7 +108,11 @@ class PdoGsb
         $requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
         $requetePrepare->execute();
         $resultat = $requetePrepare->fetch();
-        
+         if ($resultat) {
+            return $resultat;
+        } else {
+        return null;
+        }
     }
         /**
      * Retourne les informations d'un comptable

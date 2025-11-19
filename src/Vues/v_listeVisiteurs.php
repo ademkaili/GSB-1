@@ -1,19 +1,5 @@
 <?php
-/**
- * Vue de la liste des 
- *
- * PHP Version 8
- *
- * @category  PPE
- * @package   GSB
- * @author    Réseau CERTA <contact@reseaucerta.org>
- * @author    José GIL <jgil@ac-nice.fr>
- * @copyright 2017 Réseau CERTA
- * @license   Réseau CERTA
- * @version   GIT: <0>
- * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
- * @link      https://getbootstrap.com/docs/3.3/ Documentation Bootstrap v3
- */
+
 ?>
 <div>
     <h2 class="text-warning">
@@ -22,29 +8,31 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <form action="index.php?uc=validerfiches&action=selectionnerFiche" 
+        <form action="index.php?uc=validerFrais&action=selectionner" 
               method="post">
             <div class="mb-3">
                 <label for="visiteur" class="form-label" accesskey="n">Visiteur :</label>
                 <select id="visiteur" name="visiteur" class="form-select">
-                    <option selected value="">
-                        Sélectionner un visiteur
-                    </option>
+                        <option selected value="">
+                                    -Selectionner-
+                                </option>
                     <?php
-                    foreach ($lesVisiteurs as $unVisiteur) {
-                         if ($unVisiteur == $visiteurASelectionner) {  ?>
-                            <option selected value="<?php echo $unVisiteur['id'] ?>">
-                                <?php echo $unVisiteur['nom'] . ' ' . $unVisiteur['prenom'] ?>
-                            </option>
-                            <?php
-                        } else {
-                            ?>
-                            <option value="<?php echo $unVisiteur['id'] ?>">
-                                <?php echo $unVisiteur['nom'] . ' ' . $unVisiteur['prenom'] ?>
-                            </option>
-                            <?php
+                        foreach ($lesVisiteurs as $unVisiteur) {
+                            if ($unVisiteur == $visiteurASelectionner) {
+                                ?>
+                                <option selected value="<?php echo $unVisiteur['id'] ?>">
+                                    <?php echo $unVisiteur['nom'] . ' ' . $unVisiteur['prenom'] ?>
+                                </option>
+                                <?php
+                            } else {
+                                ?>
+                                <option value="<?php echo $unVisiteur['id'] ?>">
+                                    <?php echo $unVisiteur['nom'] . ' ' . $unVisiteur['prenom'] ?>
+                                </option>
+                                <?php
+                            }
                         }
-                    }
+                    
                     ?>
                 </select>
             </div>
