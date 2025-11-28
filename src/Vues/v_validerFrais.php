@@ -84,23 +84,26 @@
                 $libelle = htmlspecialchars($unFraisHorsForfait['libelle']);
                 $montant = $unFraisHorsForfait['montant'];
                 ?>
-                <form method="post" action="index.php?uc=validerFrais&action=majFraisForfait" onsubmit="return confirm('Voulez-vous valider les changements ?');">
+                <form method="post" action="index.php?uc=validerFrais&action=majFraisHorsForfait" onsubmit="return confirm('Voulez-vous valider les changements ?');">
+                      <input type="hidden" name="visiteur" value="<?php echo $idVisiteur ?>">
+                      <input type="hidden" name="mois" value="<?php echo $leMois ?>">
+                      <input type="hidden" name="idFraisHors" value="<?php echo $idFraisHorsForfait ?>">
                     <tr>
                         <td class="qteForfait">
                             <input type="text" id="idFrais"
-                                   name="lesFraisHors[<?php echo $idFraisHorsForfait ?>]"
+                                   name="lesFraisHorsD"
                                    value="<?php echo $date ?>"
                                    class="form-control">
                         </td>
                         <td class="qteForfait">
                             <input type="text" id="idFrais"
-                                   name="lesFraisHors[<?php echo $idFraisHorsForfait ?>]"
+                                   name="lesFraisHorsL"
                                    value="<?php echo $libelle ?>"
                                    class="form-control">
                         </td>
                         <td class="qteForfait">
                             <input type="text" id="idFrais"
-                                   name="lesFraisHors[<?php echo $idFraisHorsForfait ?>]"
+                                   name="lesFraisHorsM"
                                    value="<?php echo $montant ?>"
                                    class="form-control">
                         </td>
