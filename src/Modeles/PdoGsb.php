@@ -554,4 +554,63 @@ class PdoGsb
         $requetePrepare->bindParam(':unMois', $mois, PDO::PARAM_STR);
         $requetePrepare->execute();
     }
+    
+    public function refuserFraisHorsForfait($idFraisHors, $libelle): void {
+        $requetePrepare = $this->connexion->prepare(
+                'UPDATE lignefraishorsforfait '
+                . 'SET lignefraishorsforfait.libelle = :unLibelle '
+                . 'WHERE lignefraishorsforfait.id = :unId'
+        );
+        if (stripos($libelle, "REFUSE :") !== 0) {
+            $libelle = "REFUSE : " . $libelle;
+        }
+        $requetePrepare->bindParam(':unLibelle', $libelle, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unId', $idFraisHors, PDO::PARAM_STR);
+        $requetePrepare->execute();
+    }
+    
+        public function reporterFraisHorsForfait($idFraisHors): void {
+            
+        $requetePrepare = $this->connexion->prepare(
+                'SELECT mois, idvisiteur, libelle, date, montant '
+                . 'FROM lignefraishorsforfait '
+                . 'WHERE lignefraishorsforfait.id = :unId'
+        );
+        $requetePrepare->bindParam(':unId', $idFraisHors, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        $laLigne = $requetePrepare->fetch();
+        $mois = $laLigne['mois'];
+        $idVisiteur = $laLigne['idvisiteur'];
+        $libelle = $laLigne['libelle'];
+        $date = $laLigne['date'];
+        $montant = $laLigne['montant'];
+            
+        $leMoisSuivant = $this->moisSuivant($mois);
+        $dateEN = Utilitaires::dateAnglaisVersFrancais($date);
+            
+        if ($this->estPremierFraisMois($idVisiteur, $leMoisSuivant)) {
+                
+            $this->creeNouvellesLignesFrais($idVisiteur, $leMoisSuivant);    
+        } 
+
+        $this->creeNouveauFraisHorsForfait($idVisiteur, $leMoisSuivant, $libelle, $dateEN, $montant);    
+        $this->supprimerFraisHorsForfait($idFraisHors);    
+    }
+    public function moisSuivant($mois): string {
+        
+        $anneeActuel = substr($mois, 0, 4);
+        $moisActuel = substr($mois, -2);
+        $moisFinal = "";
+        
+        if($moisActuel == '12') {
+            $moisFinal = (intval($anneeActuel) + 1). '01';
+        } else {
+            if(strlen(strval(intval($moisActuel) + 1)) < 2) {
+               $moisFinal = $anneeActuel.'0'.(intval($moisActuel) + 1);
+            } else {
+                $moisFinal = $anneeActuel.(intval($moisActuel) + 1);
+            }
+        }
+        return $moisFinal;
+    }
 }

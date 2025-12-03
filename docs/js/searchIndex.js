@@ -196,10 +196,25 @@ Search.appendIndex(
             "summary": "Fonction\u0020statique\u0020qui\u0020cr\u00E9e\u0020l\u0027unique\u0020instance\u0020de\u0020la\u0020classe\nAppel\u0020\u003A\u0020\u0024instancePdoGsb\u0020\u003D\u0020PdoGsb\u003A\u003AgetPdoGsb\u0028\u0029\u003B",
             "url": "classes/Modeles-PdoGsb.html#method_getPdoGsb"
         },                {
+            "fqsen": "\\Modeles\\PdoGsb\u003A\u003AgetInfosVisiteurById\u0028\u0029",
+            "name": "getInfosVisiteurById",
+            "summary": "Retourne\u0020les\u0020informations\u0020d\u0027un\u0020visiteur",
+            "url": "classes/Modeles-PdoGsb.html#method_getInfosVisiteurById"
+        },                {
             "fqsen": "\\Modeles\\PdoGsb\u003A\u003AgetInfosVisiteur\u0028\u0029",
             "name": "getInfosVisiteur",
-            "summary": "Retourne\u0020les\u0020informations\u0020d\u0027un\u0020visiteur",
+            "summary": "",
             "url": "classes/Modeles-PdoGsb.html#method_getInfosVisiteur"
+        },                {
+            "fqsen": "\\Modeles\\PdoGsb\u003A\u003AgetInfosComptable\u0028\u0029",
+            "name": "getInfosComptable",
+            "summary": "Retourne\u0020les\u0020informations\u0020d\u0027un\u0020comptable",
+            "url": "classes/Modeles-PdoGsb.html#method_getInfosComptable"
+        },                {
+            "fqsen": "\\Modeles\\PdoGsb\u003A\u003AgetLesVisiteurs\u0028\u0029",
+            "name": "getLesVisiteurs",
+            "summary": "",
+            "url": "classes/Modeles-PdoGsb.html#method_getLesVisiteurs"
         },                {
             "fqsen": "\\Modeles\\PdoGsb\u003A\u003AgetLesFraisHorsForfait\u0028\u0029",
             "name": "getLesFraisHorsForfait",
@@ -225,6 +240,11 @@ Search.appendIndex(
             "name": "majFraisForfait",
             "summary": "Met\u0020\u00E0\u0020jour\u0020la\u0020table\u0020ligneFraisForfait\nMet\u0020\u00E0\u0020jour\u0020la\u0020table\u0020ligneFraisForfait\u0020pour\u0020un\u0020visiteur\u0020et\nun\u0020mois\u0020donn\u00E9\u0020en\u0020enregistrant\u0020les\u0020nouveaux\u0020montants",
             "url": "classes/Modeles-PdoGsb.html#method_majFraisForfait"
+        },                {
+            "fqsen": "\\Modeles\\PdoGsb\u003A\u003AmajFraisHorsForfait\u0028\u0029",
+            "name": "majFraisHorsForfait",
+            "summary": "",
+            "url": "classes/Modeles-PdoGsb.html#method_majFraisHorsForfait"
         },                {
             "fqsen": "\\Modeles\\PdoGsb\u003A\u003AmajNbJustificatifs\u0028\u0029",
             "name": "majNbJustificatifs",
@@ -325,11 +345,6 @@ Search.appendIndex(
             "name": "classMap",
             "summary": "",
             "url": "classes/Composer-Autoload-ComposerStaticInitb61b79819ae9165507c7f3b1ebfa76b0.html#property_classMap"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\includeFile\u0028\u0029",
-            "name": "includeFile",
-            "summary": "Scope\u0020isolated\u0020include.",
-            "url": "namespaces/composer-autoload.html#function_includeFile"
         },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader",
             "name": "ClassLoader",
@@ -443,13 +458,23 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetRegisteredLoaders\u0028\u0029",
             "name": "getRegisteredLoaders",
-            "summary": "Returns\u0020the\u0020currently\u0020registered\u0020loaders\u0020indexed\u0020by\u0020their\u0020corresponding\u0020vendor\u0020directories.",
+            "summary": "Returns\u0020the\u0020currently\u0020registered\u0020loaders\u0020keyed\u0020by\u0020their\u0020corresponding\u0020vendor\u0020directories.",
             "url": "classes/Composer-Autoload-ClassLoader.html#method_getRegisteredLoaders"
         },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AfindFileWithExtension\u0028\u0029",
             "name": "findFileWithExtension",
             "summary": "",
             "url": "classes/Composer-Autoload-ClassLoader.html#method_findFileWithExtension"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AinitializeIncludeClosure\u0028\u0029",
+            "name": "initializeIncludeClosure",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_initializeIncludeClosure"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024includeFile",
+            "name": "includeFile",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_includeFile"
         },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024vendorDir",
             "name": "vendorDir",
@@ -473,7 +498,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024prefixesPsr0",
             "name": "prefixesPsr0",
-            "summary": "",
+            "summary": "List\u0020of\u0020PSR\u002D0\u0020prefixes",
             "url": "classes/Composer-Autoload-ClassLoader.html#property_prefixesPsr0"
         },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024fallbackDirsPsr0",
