@@ -81,6 +81,13 @@ switch ($action) {
         include PATH_VIEWS . 'v_listeVisiteurs.php';
         include PATH_VIEWS . 'v_listeMoisAValider.php';
         include PATH_VIEWS . 'v_validerFrais.php'; 
+        break;
         
+    case 'validerFicheDeFrais':
+        $pdo->majEtatFicheFrais($idVisiteur, $leMois, 'VA');
+        include PATH_VIEWS . 'v_listeVisiteurs.php';
+        include PATH_VIEWS . 'v_listeMoisAValider.php';
+        include PATH_VIEWS . 'v_validerFrais.php'; 
+        break;
         
 }

@@ -123,7 +123,7 @@
 
 <br>
 
-<form method="post" action="index.php?uc=validerFrais&action=validationFinale" onsubmit="return confirm('Voulez-vous valider les changements ?');">
+<form method="post" action="index.php?uc=validerFrais&action=validerFicheDeFrais" onsubmit="return confirm('Voulez-vous valider les changements ?');">
     <input type="hidden" name="visiteur" value="<?php echo $idVisiteur ?>">
     <input type="hidden" name="mois" value="<?php echo $leMois ?>"> 
 
