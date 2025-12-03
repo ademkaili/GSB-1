@@ -60,7 +60,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?php if ($uc == 'suivrepaiement') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php?uc=suivrepaiement">
+                                <a class="nav-link <?php if ($uc == 'suivrepaiement') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php?uc=suivrepaiement&action=selectionner">
                                     <span class="bi bi-currency-euro"></span>
                                     Suivre le paiement des fiches de frais
                                 </a>

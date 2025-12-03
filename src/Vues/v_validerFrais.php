@@ -15,6 +15,9 @@
  */
 ?>
 <hr>
+<div>
+    <h2> Etat Fiche : <?php echo $libEtat;?></h2>
+</div>
 <div class="card card-info">
     <div class="card-header bg-warning text-white">Eléments forfaitisés</div>
     <div class="card-body">
