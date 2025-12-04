@@ -43,6 +43,22 @@
                     <?php
                 }
                 ?>
+                <div class="mb-3">
+                    <label for="vehicule" class="form-label">Puissance du véhicule :</label>
+                    <select name="vehicule" id="vehicule" class="form-select" required>
+                        <option disabled selected>— Choisissez un véhicule —</option>
+
+                        <option value="1">Véhicule 4CV Diesel : 0.52 € / Km</option>
+                        <option value="2">Véhicule 5/6CV Diesel : 0.58 € / Km</option>
+                        <option value="3">Véhicule 4CV Essence : 0.62 € / Km</option>
+                        <option value="4">Véhicule 5/6CV Essence : 0.67 € / Km</option>
+                    </select>
+                    <?php
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $idVehicule = $_POST['vehicule'];
+                }
+                ?>
+                </div>
                 <button class="btn btn-success" type="submit">Ajouter</button>
                 <button class="btn btn-danger" type="reset">Effacer</button>
             </fieldset>
