@@ -177,7 +177,7 @@ class PdoGsb
         $requetePrepare = $this->connexion->prepare(
             'SELECT comptable.mdp '
             . 'FROM comptable '
-            . 'WHERE visiteur.login = :unLogin'
+            . 'WHERE comptable.login = :unLogin'
         );
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
         $requetePrepare->execute();

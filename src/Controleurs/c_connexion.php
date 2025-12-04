@@ -38,7 +38,7 @@ switch ($action) {
             $role = "visiteur";
             Utilitaires::connecter($id, $nom, $prenom,$role);
             header('Location: index.php');
-        }elseif (is_array($comptable)){
+        }elseif (is_array($comptable)&&(password_verify($mdp, $pdo->getMdpComptable($login)))){
             $id = $comptable['id'];
             $nom = $comptable['nom'];
             $prenom = $comptable['prenom'];
