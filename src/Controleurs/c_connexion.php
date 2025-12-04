@@ -31,7 +31,7 @@ switch ($action) {
         $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $visiteur = $pdo->getInfosVisiteur($login, $mdp);
         $comptable = $pdo->getInfosComptable($login, $mdp);
-        if (is_array($visiteur)) {
+        if (is_array($visiteur)&&(password_verify($mdp, $pdo->getMdpVisiteur($login)))) {
             $id = $visiteur['id'];
             $nom = $visiteur['nom'];
             $prenom = $visiteur['prenom'];

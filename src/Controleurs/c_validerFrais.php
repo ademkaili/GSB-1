@@ -14,10 +14,10 @@ $lesVisiteurs = $pdo->getLesVisiteurs();
 $idVisiteur = filter_input(INPUT_POST, 'visiteur', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $leMois = filter_input(INPUT_POST, 'mois', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-if (isset($idVisiteur)) {
+if (isset($idVisiteur) && $idVisiteur != null) {
     $visiteurASelectionner = $pdo->getInfosVisiteurById($idVisiteur);
     $moisASelectionner = $leMois;
-    $lesMois = $pdo->getLesMoisDisponibles($idVisiteur);
+    $lesMois = $pdo->getLesMoisDisponiblesAValider($idVisiteur);
     if (isset($leMois)) {
         $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $leMois);
         $lesFraisForfait = $pdo->getLesFraisForfait($idVisiteur, $leMois);
@@ -27,13 +27,20 @@ if (isset($idVisiteur)) {
         $montantValide = $lesInfosFicheFrais['montantValide'];
         $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
     }
+} else {
+    $action = 'selectionnerVisiteur';
 }
 
 
 $lesFraisHors = filter_input(INPUT_POST, 'lesFraisHors', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 switch ($action) {
-    case 'selectionner' :
+    
+    case 'selectionnerVisiteur' :
+        include PATH_VIEWS . 'v_listeVisiteurs.php';
+        break;
+    
+    case 'selectionnerMois' :
         include PATH_VIEWS . 'v_listeVisiteurs.php';
         include PATH_VIEWS . 'v_listeMoisAValider.php';
         break;

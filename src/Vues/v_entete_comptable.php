@@ -54,13 +54,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?php if ($uc == 'validerfiches') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php?uc=validerFrais&action=selectionner">
+                                <a class="nav-link <?php if ($uc == 'validerFrais') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php?uc=validerFrais&action=selectionnerVisiteur">
                                     <span class="bi bi-check"></span>
                                     Valider les fiches de frais
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?php if ($uc == 'suivrepaiement') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php?uc=suivrepaiement&action=selectionner">
+                                <a class="nav-link <?php if ($uc == 'suivrepaiement') { ?>active bg-warning text-white<?php } ?> text-warning " href="index.php?uc=suivrepaiement&action=selectionnerVisiteur">
                                     <span class="bi bi-currency-euro"></span>
                                     Suivre le paiement des fiches de frais
                                 </a>

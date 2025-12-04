@@ -134,5 +134,4 @@
 
     Nombre de justificatif: <input id="number" type="number" value="<?php echo $nbJustificatifs ?>" size="1" min="0" max="15" />
     <button class="btn btn-success" type="submit">Valider</button>
-    <button class="btn btn-danger" type="reset">Réinitialiser</button>
 </form>

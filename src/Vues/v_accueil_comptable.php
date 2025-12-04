@@ -18,11 +18,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 col-md-12 d-grid gap-2 d-md-block">
-                        <a href="index.php?uc=validerFrais&action=selectionner"
+                        <a href="index.php?uc=validerFrais&action=selectionnerVisiteur"
                            class="btn btn-success btn-lg" role="button">
                             <i class="bi bi-check"></i>
                             <br>Valider fiche de frais</a>
-                        <a href="index.php?uc=suivrepaiement&action=selectionner"
+                        <a href="index.php?uc=suivrepaiement&action=selectionnerVisiteur"
                            class="btn btn-primary btn-lg" role="button">
                             <i class="bi bi-currency-euro"></i>
                             <br>Suivre paiement</a>

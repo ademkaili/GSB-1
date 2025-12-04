@@ -11,7 +11,7 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <form action="index.php?uc=suivrepaiement&action=selectionner" 
+        <form action="index.php?uc=suivrepaiement&action=selectionnerMois" 
               method="post">
             <div class="mb-3">
                 <label for="visiteur" class="form-label" accesskey="n">Visiteur :</label>
