@@ -54,9 +54,7 @@
                         <option value="4">Véhicule 5/6CV Essence : 0.67 € / Km</option>
                     </select>
                     <?php
-                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $idVehicule = $_POST['vehicule'];
-                }
+                    $vehicule_id = $_POST['vehicule'];
                 ?>
                 </div>
                 <button class="btn btn-success" type="submit">Ajouter</button>
