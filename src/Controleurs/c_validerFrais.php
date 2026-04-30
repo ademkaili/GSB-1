@@ -14,6 +14,8 @@ $lesVisiteurs = $pdo->getLesVisiteurs();
 $idVisiteur = filter_input(INPUT_POST, 'visiteur', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $leMois = filter_input(INPUT_POST, 'mois', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+$lesVehicules = $pdo->getListeVehicule(); 
+
 if (isset($idVisiteur) && $idVisiteur != null) {
     $visiteurASelectionner = $pdo->getInfosVisiteurById($idVisiteur);
     $moisASelectionner = $leMois;
@@ -26,6 +28,8 @@ if (isset($idVisiteur) && $idVisiteur != null) {
         $libEtat = $lesInfosFicheFrais['libEtat'];
         $montantValide = $lesInfosFicheFrais['montantValide'];
         $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+        
+         $vehiculeVisiteur = $pdo->getVehiculeByVisiteur($idVisiteur);
     }
 } else {
     $action = 'selectionnerVisiteur';
@@ -59,10 +63,14 @@ switch ($action) {
                     ]
                 ])['lesFrais'];
 
+        
+        $leVehicule = filter_input(INPUT_POST, 'vehicule', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        $pdo->majVehiculeVisiteur($idVisiteur, $leVehicule);
         $pdo->majFraisForfait($idVisiteur, $leMois, $lesFrais);
 
+        $vehiculeVisiteur = $pdo->getVehiculeByVisiteur($idVisiteur);
         $lesFraisForfait = $pdo->getLesFraisForfait($idVisiteur, $leMois);
-
         $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $leMois);
         $libEtat = $lesInfosFicheFrais['libEtat'];
         $montantValide = $lesInfosFicheFrais['montantValide'];
@@ -115,7 +123,15 @@ switch ($action) {
         break;
 
     case 'validerFicheDeFrais':
-        $pdo->majEtatFicheFrais($idVisiteur, $leMois, 'VA');
+       $number = filter_input(INPUT_POST, 'number', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $etat = "VA";
+        $pdo->majNbJustificatifs($idVisiteur, $leMois, $number);
+        $pdo->majEtatFicheFrais($idVisiteur, $leMois, $etat);
+        $pdo->MajMontantValide($idVisiteur, $leMois);
+
+        $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $leMois);
+        $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+        $montantValide = $lesInfosFicheFrais['montantValide'];
         include PATH_VIEWS . 'v_listeVisiteurs.php';
         include PATH_VIEWS . 'v_listeMoisAValider.php';
         include PATH_VIEWS . 'v_validerFrais.php';
